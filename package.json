@@ -1,0 +1,19 @@
+{
+  "name": "time_window",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "watch": "nodemon ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.0",
+    "sqlite3": "^5.1.7",
+    "uuidv4": "^6.2.13"
+  }
+}

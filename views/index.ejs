@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerts</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 5px;
+        }
+        th {
+            text-align: left;
+        }
+        span.text{
+            display: inline-block;
+            max-width: 300px;
+            /* white-space: nowrap; */
+        }
+    </style>
+</head>
+<body>
+    <h1>Alerts</h1>
+    <br>
+    <table>
+        <tr>
+            <th>Text</th>
+            <th>Created</th>
+        </tr>
+        <% data.forEach(function(alert){ %>
+            <tr>
+                <td><span class="text"><%=alert.text%></span></td>
+                <td><%=alert.created %></td>
+            </tr>
+          <% }); %>
+             
+    </table>
+</body>
+</html>
