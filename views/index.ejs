@@ -26,11 +26,13 @@
     <br>
     <table>
         <tr>
+            <th>ID</th>
             <th>Text</th>
             <th>Created</th>
         </tr>
         <% data.forEach(function(alert){ %>
             <tr>
+                <td><%=alert.id%></td>
                 <td><span class="text"><%=alert.text%></span></td>
                 <td><%=alert.created %></td>
             </tr>

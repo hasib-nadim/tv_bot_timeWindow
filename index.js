@@ -1,5 +1,5 @@
 const express = require("express");
-const { createDB, insert,last5, getLast } = require("./query");
+const { createDB, insert,getAll, getLast } = require("./query");
 const app = express();
 const port = 3000;
 app.use(express.urlencoded({ extended: true }), express.json());
@@ -11,7 +11,7 @@ app.use("/api", api);
 //
 app.get("/", async (req, res) => {
   try {
-    const data = await last5();
+    const data = await getAll();
     res.render("index", { data: data });
   } catch (error) {
     console.log(error);
@@ -33,7 +33,7 @@ api.get("/send", (req, res) => {
 api.get("/list",async (req, res) => {
   try {
     const data = await last5();
-    let _ = data.map((d) => (`${Date.parse(d.created)}_${d.text}`));
+    let _ = data.map((d) => (`${Date.parse(d.created)}+${d.text}`));
     res.json(_);
   } catch (error) {
     console.log(error);
@@ -43,7 +43,7 @@ api.get("/list",async (req, res) => {
 api.get("/view",async (req, res) => {
   try {
     const data = await getLast();
-    res.send(`${Date.parse(data.created)}_${data.text}`);
+    res.send(`${Date.parse(data.created)}+${data.text}`);
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: error.message });

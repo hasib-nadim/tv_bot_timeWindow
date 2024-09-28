@@ -41,7 +41,9 @@ function getAll() {
   let db = new sqlite3.Database(dbName);
   return new Promise((resolve, reject) => {
     db.serialize(() => {
-      db.all(`SELECT * FROM alerts ORDER BY created DESC`, (err, rows) => {
+      // delete old after 6 month
+      //db.run(`DELETE FROM alerts WHERE created < DATETIME('now', '-6 month')`);
+      db.all(`SELECT * FROM alerts ORDER BY created DESC LIMIT 150`, (err, rows) => {
         if (err) {
           reject(err);
         } else {
