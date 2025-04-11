@@ -1,2 +1,5 @@
 /node_modules
 *.db
+pair.json
+pair_cycle.json
+pair_flag.json
