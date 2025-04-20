@@ -43,7 +43,7 @@ function getAll() {
     db.serialize(() => {
       // delete old after 6 month
       //db.run(`DELETE FROM alerts WHERE created < DATETIME('now', '-6 month')`);
-      db.all(`SELECT * FROM alerts ORDER BY created DESC LIMIT 150`, (err, rows) => {
+      db.all(`SELECT * FROM alerts ORDER BY created DESC LIMIT 1000`, (err, rows) => {
         if (err) {
           reject(err);
         } else {
